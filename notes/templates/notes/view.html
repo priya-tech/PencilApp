@@ -1,0 +1,10 @@
+{% extends 'notes/base.html' %}
+{% block content %}
+
+    <tr><td><button onclick="location.href='{% url 'add_notes' %}'">ADD</button></td></tr>
+    {% for i in all_notes %}
+    <tr><td>{{forloop.counter}} - </td><td>{{i.text}}&nbsp;</td> <td><button onclick="location.href='{% url 'edit_notes' 'edit' i.id %}'">Edit</button> &nbsp; <button onclick="location.href='{% url 'delete_notes' i.id %}'">Delete</button></td></tr>
+    {% endfor %}
+
+
+{% endblock %}

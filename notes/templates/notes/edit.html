@@ -1,0 +1,19 @@
+{% extends 'notes/base.html' %}
+{% block content %}
+<tr><td><button onclick="location.href='{% url 'add_notes' %}'">ADD</button></td></tr>
+{% for i in data.notes %}
+<tr><td>{{forloop.counter}} -
+  {% if data.id == i.id %}
+    <form action="{% url 'edit_notes' 'submit' i.id %}">
+      {% csrf_token %}
+      <input type="text" name="note" value="{{i.text}}">
+      <input type="submit" value="submit">
+    </form>
+  {% else %}
+    {{i.text}}
+  {% endif %}
+  </td></tr>
+
+{% endfor %}
+
+{% endblock %}

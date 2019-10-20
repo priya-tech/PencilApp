@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Notes App</title>
+  </head>
+  <body>
+    <div align='center'>
+      <h3>Notes App</h3>
+    </div>
+      <form action="{% url 'add_notes' %}" method="post">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Add note">
+      </form>
+  </body>
+</html>
